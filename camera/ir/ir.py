@@ -1,5 +1,6 @@
 from flask import Flask
 import RPi.GPIO as GPIO
+import os
 
 PWMLed = 13
 state = 0
@@ -19,6 +20,7 @@ def hello_world():
 
 @app.route("/state")
 def getState():
+  global state
   return {
     'message': 'Current PWM setting of IR LEDs',
     'state': state
@@ -26,6 +28,7 @@ def getState():
 
 @app.route("/state/<int:level>")
 def setState(level):
+  global state
   state = level
   breath.ChangeDutyCycle(state)
   return {
