@@ -10,9 +10,14 @@ services:
     environment:
       - PORT=8554
       - NAME=Nanny
+#    ports:
+#      - 53:53
+#      - 53:53/udp
   ir:
     image: docker.kapusnik.cz/ir
     build: ir/
     restart: unless-stopped
     volumes:
       - /dev/gpiomem
+    environment:
+      - PORT=4000
