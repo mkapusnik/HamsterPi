@@ -1,5 +1,7 @@
 # Baby camera
 
+![Camera module](doc/camera.png "Camera render")
+
 ## Bill of Materials
 - [Raspberry Pi Zero 2 W](https://rpishop.cz/zero/4311-raspberry-pi-zero-2-w-5056561800004.html)
 - [Raspberry Pi NoIR Camera V2](https://rpishop.cz/mipi-kamerove-moduly/331-raspberry-pi-noir-kamera-modul-v2.html)
