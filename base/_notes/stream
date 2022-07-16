@@ -1,0 +1,6 @@
+#!/bin/bash
+uv4l --driver raspicam --auto-video_nr --framerate 20 --bitrate 1000000 --width 800 --height 600 --encoding=h264 --extension-presence=0 --enable-server off
+
+cvlc -vvv stream:///dev/video2 --sout '#rtp{sdp=rtsp://:8554/}' :demux=h264 --h264-fps=20
+
+cvlc -vvv v4l2c:///dev/video3:width=800:height=600:chroma=H264 --sout '#rtp{sdp=rtsp://:8554/}' :demux=h264
