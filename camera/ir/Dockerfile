@@ -1,5 +1,5 @@
-#FROM arm32v6/python:3.10-alpine
-FROM python:3.9
+FROM python:3.10-slim-bullseye
+RUN apt-get update && apt-get install -y gcc && apt-get clean && rm -rf /var/lib/{apt,dpkg,cache,log}
 WORKDIR /app
 ENV PIP_ROOT_USER_ACTION=ignore
 RUN pip install --upgrade pip

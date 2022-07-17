@@ -5,6 +5,7 @@ import os
 PWMLed = 13
 state = 0
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PWMLed,GPIO.OUT)
 
@@ -38,4 +39,4 @@ def setState(level):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port)

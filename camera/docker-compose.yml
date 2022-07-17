@@ -1,9 +1,10 @@
 version: '3'
 services:
   discovery:
-    image: docker.kapusnik.cz/nsd:python
-    build: nsd/
+    image: docker.kapusnik.cz/nsd
     network_mode: host
+    stdin_open: true
+    tty: true
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -16,10 +17,11 @@ services:
 
   ir:
     image: docker.kapusnik.cz/ir
-    build: ir/
     restart: unless-stopped
+    privileged: true
     volumes:
       - /dev/gpiomem:/dev/gpiomem
+      - /dev/mem:/dev/mem
     environment:
       - PORT=4000
     ports:
@@ -30,4 +32,4 @@ services:
     volumes:
       - ./api.conf:/etc/nginx/nginx.conf
     ports:
-      - "8080:8080"
+      - "80:80"
