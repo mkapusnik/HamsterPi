@@ -13,6 +13,7 @@ services:
 #    ports:
 #      - 53:53
 #      - 53:53/udp
+
   ir:
     image: docker.kapusnik.cz/ir
     build: ir/
@@ -23,3 +24,10 @@ services:
       - PORT=4000
     ports:
       - "4000:4000"
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./api.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8080:8080"
