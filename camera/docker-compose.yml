@@ -18,6 +18,8 @@ services:
     build: ir/
     restart: unless-stopped
     volumes:
-      - /dev/gpiomem
+      - /dev/gpiomem:/dev/gpiomem
     environment:
       - PORT=4000
+    ports:
+      - "4000:4000"

@@ -1,4 +1,5 @@
-FROM arm32v6/python:3.10-alpine
+#FROM arm32v6/python:3.10-alpine
+FROM python:3.9
 WORKDIR /app
 ENV PIP_ROOT_USER_ACTION=ignore
 RUN pip install --upgrade pip

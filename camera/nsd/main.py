@@ -1,7 +1,8 @@
 from zeroconf import IPVersion, ServiceInfo, Zeroconf
 import os
 
-port = os.getenv('PORT', 8555)
+#port = os.getenv('PORT', 8555)
+port = int(os.environ.get('PORT', 8555))
 name = os.getenv('NAME', 'Default Nanny')
 desc = {'deviceName': name}
 type = '_nanny._tcp.local.'

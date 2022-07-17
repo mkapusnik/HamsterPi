@@ -1,2 +1,2 @@
 Flask
-RPi.GPIO
+RPi.Gpio
