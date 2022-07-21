@@ -1,7 +1,13 @@
-FROM openresty/openresty:buster
-RUN apt-get update && apt-get install -y jq wireless-tools && apt-get clean && rm -rf /var/lib/{apt,dpkg,cache,log}
+FROM dart:beta AS build
 WORKDIR /app
-COPY wifi.conf /etc/nginx/conf.d/default.conf
-COPY signal .
-COPY dummy /signal
-EXPOSE 80
+COPY pubspec.* ./
+RUN dart pub get
+COPY . .
+RUN dart compile exe bin/server.dart -o bin/server
+
+FROM scratch
+COPY --from=build /runtime/ /
+COPY --from=build /app/bin/server /app/bin/
+
+EXPOSE 8080
+CMD ["/app/bin/server"]
