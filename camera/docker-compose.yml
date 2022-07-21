@@ -27,6 +27,15 @@ services:
     ports:
       - "4000:4000"
 
+  wifi:
+    image: docker.kapusnik.cz/wifi
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /proc/net/wireless:/signal
+    ports:
+      - "5000:80"
+
   nginx:
     image: nginx:latest
     volumes:

@@ -1,0 +1,2 @@
+#!/bin/bash
+jq --null-input --arg signal `cat /signal | awk 'END { print $4 }' | grep -Po '([0-9]+)'` '{ "wifi" : $signal}'
