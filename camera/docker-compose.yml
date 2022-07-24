@@ -8,6 +8,7 @@ services:
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /etc/hostname:/hostname
     environment:
       - PORT=8554
       - NAME=Nanny

@@ -1,9 +1,11 @@
 from zeroconf import IPVersion, ServiceInfo, Zeroconf
 import os
 
-#port = os.getenv('PORT', 8555)
+hostFile = open("/hostname", "r")
+server = hostFile.readline()
+
 port = int(os.environ.get('PORT', 8555))
-name = os.getenv('NAME', 'Default Nanny')
+name = os.getenv('NAME', server.title())
 desc = {'deviceName': name}
 type = '_nanny._tcp.local.'
 
@@ -12,7 +14,7 @@ info = ServiceInfo(
     name+"."+type,
     port=port,
     properties=desc,
-    server="hamster.local.",
+    server=server+".local.",
 )
 
 zeroconf = Zeroconf(ip_version=IPVersion.V4Only)
