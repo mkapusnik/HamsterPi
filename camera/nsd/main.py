@@ -18,7 +18,7 @@ info = ServiceInfo(
 )
 
 zeroconf = Zeroconf(ip_version=IPVersion.V4Only)
-print("Registration of a service on port {}, press Ctrl-C to exit...".format(port))
+print("Registration of a service {} on {}:{}, press Ctrl-C to exit...".format(name, server, port))
 zeroconf.register_service(info)
 try:
     input("Press enter to exit...\n\n")
