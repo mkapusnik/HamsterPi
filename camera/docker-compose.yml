@@ -1,7 +1,7 @@
 version: '3'
 services:
   discovery:
-    image: docker.kapusnik.cz/nsd
+    image: mkapusnik/nanny-nsd
     network_mode: host
     stdin_open: true
     tty: true
@@ -17,7 +17,7 @@ services:
 #      - 53:53/udp
 
   ir:
-    image: docker.kapusnik.cz/ir
+    image: mkapusnik/nanny-ir
     restart: unless-stopped
     privileged: true
     volumes:
@@ -29,7 +29,7 @@ services:
       - "4000:4000"
 
   wifi:
-    image: docker.kapusnik.cz/wifi
+    image: mkapusnik/nanny-wifi
     restart: unless-stopped
     privileged: true
     volumes:

@@ -51,6 +51,3 @@ Edit /etc/rc.local
 
 ### Other REST services
     docker-compose up -d
-
-docker run -d --network host --restart=always --name nsd docker.kapusnik.cz/nsd
-
