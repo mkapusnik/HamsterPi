@@ -2,7 +2,7 @@ from zeroconf import IPVersion, ServiceInfo, Zeroconf
 import os
 
 hostFile = open("/hostname", "r")
-server = hostFile.readline()
+server = hostFile.readline().strip()
 
 port = int(os.environ.get('PORT', 8555))
 name = os.getenv('NAME', server.title())
