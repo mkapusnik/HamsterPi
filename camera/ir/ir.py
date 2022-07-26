@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import os
 
 PWMLed = 13
-state = 0
+state = 30
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
