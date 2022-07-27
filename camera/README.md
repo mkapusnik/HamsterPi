@@ -39,15 +39,19 @@ Boost Mic volume:
     alsamixer
 
 ### RTSP server
+#### Compile & install
     sudo apt-get install -y liblivemedia-dev liblog4cpp5-dev libasound2-dev cmake git
     git clone https://github.com/mpromonet/v4l2rtspserver.git
     cd v4l2rtspserver && cmake . -Wno-dev && make
 
-### Startup script
-Edit /etc/rc.local
+#### Startup
+Open and copy ![camera.service](camera/camera.service "Camera service")
 
-    sudo nano /etc/rc.local
-    /home/pi/v4l2rtspserver/v4l2rtspserver -F 25 -W 800 -H 600 -P 8555 /dev/video0,lp
+    sudo nano /lib/systemd/system/camera.service
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable camera.service
+    
 
 ### Other REST services
     docker-compose up -d

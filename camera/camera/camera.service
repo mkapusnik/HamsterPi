@@ -1,0 +1,9 @@
+[Unit]
+Description=Nanny Camera
+After=multi-user.target
+
+[Service]
+ExecStart=/bin/bash -c '/home/pi/v4l2rtspserver/v4l2rtspserver -F 25 -W 800 -H 600 -P 8555 -C 1 -A 48000 -a S16_LE /dev/video0,lp > /home/pi/camera.log 2>&1'
+
+[Install]
+WantedBy=multi-user.target
