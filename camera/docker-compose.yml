@@ -28,14 +28,14 @@ services:
     ports:
       - "4000:4000"
 
-  wifi:
-    image: mkapusnik/nanny-wifi
-    restart: unless-stopped
-    privileged: true
-    volumes:
-      - /proc/net/wireless:/signal
-    ports:
-      - "5000:8080"
+#  wifi:
+#    image: mkapusnik/nanny-wifi
+#    restart: unless-stopped
+#    privileged: true
+#    volumes:
+#      - /proc/net/wireless:/signal
+#    ports:
+#      - "5000:8080"
 
   nginx:
     image: nginx:alpine
