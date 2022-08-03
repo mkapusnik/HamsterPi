@@ -34,10 +34,6 @@ Prepare and boot Raspberry Pi OS (32bit, bullseye) on your RPi
 
 As per [this advice](https://github.com/mpromonet/v4l2rtspserver/issues/94#issuecomment-378788356), download ![asound.conf](doc/asound.conf "asound configuration") 
 
-Boost Mic volume:    
-
-    alsamixer
-
 ### RTSP server
 #### Compile & install
     sudo apt-get install -y liblivemedia-dev liblog4cpp5-dev libasound2-dev cmake git

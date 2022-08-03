@@ -1,0 +1,9 @@
+[Unit]
+Description=Nanny Status
+After=multi-user.target
+
+[Service]
+ExecStart=/bin/bash -c 'SERVER=80 python /home/pi/HamsterPi/camera/all_in_one/main.py > /home/pi/rest.log 2>&1'
+
+[Install]
+WantedBy=multi-user.target

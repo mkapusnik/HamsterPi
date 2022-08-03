@@ -1,5 +1,5 @@
 # All in one
-aka run all services natively, without docker
+Run all services natively, without docker
 
 ## Installation
 Prepare and boot Raspberry Pi OS (32bit, bullseye) on your RPi
@@ -17,17 +17,23 @@ Prepare and boot Raspberry Pi OS (32bit, bullseye) on your RPi
 
 As per [this advice](https://github.com/mpromonet/v4l2rtspserver/issues/94#issuecomment-378788356), download ![asound.conf](doc/asound.conf "asound configuration") 
 
-Boost Mic volume:    
-
-    alsamixer
-
 ### RTSP server
     sudo apt-get install -y liblivemedia-dev liblog4cpp5-dev libasound2-dev cmake git
     git clone https://github.com/mpromonet/v4l2rtspserver.git
     cd v4l2rtspserver && cmake . -Wno-dev && make
 
-### Startup script
-Edit /etc/rc.local
+### Install dependencies
+    sudo -H pip install --no-cache-dir -r requirements.txt
 
-    sudo nano /etc/rc.local
-    /home/pi/v4l2rtspserver/v4l2rtspserver -F 25 -W 800 -H 600 -P 8555 /dev/video0,lp
+### Startup script
+Open and copy ![camera.service](camera/camera.service "Camera service")
+
+    sudo nano /lib/systemd/system/camera.service
+
+Open and copy ![rest.service](camera/rest.service "REST service")
+
+    sudo nano /lib/systemd/system/rest.service
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable camera.service
+    sudo systemctl enable rest.service
