@@ -32,7 +32,7 @@ def get_cpu_temp():
         temp = open("/sys/class/thermal/thermal_zone0/temp")
         cpu_temp = temp.read()
         temp.close()
-        return float(cpu_temp) / 1000
+        return int(float(cpu_temp) / 1000)
     except:
         return 0
 
@@ -43,7 +43,7 @@ def get_wifi_signal():
         signal = wifi.readlines()
         m = re.search('(?<=-)([0-9]+)', signal[2])
         wifi.close()
-        return m.group(0)
+        return int(m.group(0))
     except:
         return 0
 
@@ -51,6 +51,7 @@ def get_wifi_signal():
 # IR GPIO init
 PWMLed = 13
 state = {
+    "name": name,
     "ir": 100,
     "cpu": 0,
     "wifi": 0
