@@ -9,11 +9,15 @@
 
 ## Installation
     touch .hushlogin && sudo rm /etc/profile.d/sshpwd.sh && sudo rm /etc/profile.d/wifi-check.sh
-    sudo apt-get update && sudo apt-get install -y mc aptitude git cmake sysvbanner
+    sudo apt-get update && sudo apt-get install -y mc aptitude git cmake sysvbanner nodm
 
 ### LCD Screen
     git clone https://github.com/waveshare/LCD-show.git
     cd LCD-show && chmod +x LCD35B-show-V2 && ./LCD35B-show-V2
+
+### Install dependencies
+    sudo -H pip install --no-cache-dir -r requirements.txt
+
 
 ### Wifi AutoAP
     bash <(curl -L https://github.com/balena-io/wifi-connect/raw/master/scripts/raspbian-install.sh)
